@@ -1,0 +1,6 @@
+framework module Pods_CleanArchItecture {
+  umbrella header "Pods-CleanArchItecture-umbrella.h"
+
+  export *
+  module * { export * }
+}
