@@ -9,10 +9,12 @@
 import UIKit
 
 class ListMoviesCollectionViewCell: UICollectionViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
+  
+  @IBOutlet weak var movieImage: UIImageView!
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    // Initialization code
+  }
+  
 }

@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListMoviesView" customModule="CleanArchItecture" customModuleProvider="target">
             <connections>
+                <outlet property="headerView" destination="qmH-tg-eBf" id="Dj4-Xl-Nem"/>
                 <outlet property="movieList" destination="9QP-lu-Nxx" id="XP3-1i-PdW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

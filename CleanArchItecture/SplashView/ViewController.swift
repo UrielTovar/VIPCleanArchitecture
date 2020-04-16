@@ -9,19 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     
-      self.view.backgroundColor = UIColor(named: "MidnightGreen")
+    self.view.backgroundColor = UIColor(named: "MidnightGreen")
     
     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-        let vc = ListMoviesView(nibName: "ListMoviesView", bundle: nil)
-        self.navigationController?.pushViewController(vc, animated: true)
+      let vc = ListMoviesView(nibName: "ListMoviesView", bundle: nil)
+      self.navigationController?.pushViewController(vc, animated: true)
     }
     
   }
-
+  
 }
-

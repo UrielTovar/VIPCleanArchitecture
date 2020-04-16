@@ -10,7 +10,7 @@ import Foundation
 
 protocol ListMoviesPresenterProtocol {
   //  Only one
-//  func interactor(protocol:ListMoviesInteractorProtocol, didFetch object: MovieEntity)
+  //  func interactor(protocol:ListMoviesInteractorProtocol, didFetch object: MovieEntity)
   
   //  WS functions
   func interactor(protocol:ListMoviesInteractorProtocol, didFetch object: [MovieEntityWS])
@@ -18,13 +18,13 @@ protocol ListMoviesPresenterProtocol {
 }
 
 struct ListViewModel {
-    var title: String
-    var vote_average: String
-    var poster_path: String
-    var release_date: String
-    var overview: String
-    var idMovie: String
-    var videoKey: String
+  var title: String
+  var vote_average: String
+  var poster_path: String
+  var release_date: String
+  var overview: String
+  var idMovie: String
+  //    var videoKey: String
 }
 
 class ListMoviePresenter {
@@ -37,14 +37,22 @@ extension ListMoviePresenter: ListMoviesPresenterProtocol {
   //  WS functions
   func interactor(protocol: ListMoviesInteractorProtocol, didFetch object: [MovieEntityWS]) {
     
+    var moviesList = [ListViewModel]()
+    
+    for item in object {
+      let viewModel = ListViewModel(title: item.title ?? "", vote_average:"\(item.vote_average)", poster_path: item.poster_path ?? "", release_date: item.release_date, overview: item.overview, idMovie:"\(item.id)")
+      moviesList.append(viewModel)
+      
+      view.set(viewModelList: moviesList)
+    }
     
   }
   
   //  Only one
-//  func interactor(protocol: ListMoviesInteractorProtocol, didFetch object: MovieEntity) {
-//  let listViewModel = ListViewModel(title: object.title, vote_average: object.vote_average, poster_path: object.poster_path, release_date: object.release_date, overview: object.overview, idMovie: object.idMovie, videoKey: object.videoKey)
-//
-//    view.set(viewModel: listViewModel)
-//  }
+  //  func interactor(protocol: ListMoviesInteractorProtocol, didFetch object: MovieEntity) {
+  //  let listViewModel = ListViewModel(title: object.title, vote_average: object.vote_average, poster_path: object.poster_path, release_date: object.release_date, overview: object.overview, idMovie: object.idMovie, videoKey: object.videoKey)
+  //
+  //    view.set(viewModel: listViewModel)
+  //  }
   
 }

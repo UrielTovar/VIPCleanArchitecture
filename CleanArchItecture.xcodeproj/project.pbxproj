@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		245D4EE96242D9FE21D9FE1F /* Pods_CleanArchItecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C64699304EB80E1856D4D70 /* Pods_CleanArchItecture.framework */; };
 		579657E475133D84ED46C7D9 /* Pods_CleanArchItecture_CleanArchItectureUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1D44924CD81080D5B7707E /* Pods_CleanArchItecture_CleanArchItectureUITests.framework */; };
+		8B95E8132448C21C000E26F5 /* ListMovieBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B95E8122448C21C000E26F5 /* ListMovieBuilder.swift */; };
 		8BA474632444CFA4002CA2B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA474622444CFA4002CA2B9 /* AppDelegate.swift */; };
 		8BA474672444CFA4002CA2B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA474662444CFA4002CA2B9 /* ViewController.swift */; };
 		8BA4746A2444CFA4002CA2B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA474682444CFA4002CA2B9 /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 		4C3239B3D53AE4721EFF517A /* Pods-CleanArchItecture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanArchItecture.release.xcconfig"; path = "Target Support Files/Pods-CleanArchItecture/Pods-CleanArchItecture.release.xcconfig"; sourceTree = "<group>"; };
 		5C64699304EB80E1856D4D70 /* Pods_CleanArchItecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanArchItecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A1D44924CD81080D5B7707E /* Pods_CleanArchItecture_CleanArchItectureUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanArchItecture_CleanArchItectureUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B95E8122448C21C000E26F5 /* ListMovieBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieBuilder.swift; sourceTree = "<group>"; };
 		8BA4745F2444CFA4002CA2B9 /* CleanArchItecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanArchItecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA474622444CFA4002CA2B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BA474662444CFA4002CA2B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 		8BA474A22444F824002CA2B9 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
+				8B95E8122448C21C000E26F5 /* ListMovieBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				8BA474B524452DA1002CA2B9 /* ListMoviesCollectionViewCell.swift in Sources */,
 				8BA474672444CFA4002CA2B9 /* ViewController.swift in Sources */,
 				8BA474B22445182C002CA2B9 /* ListMovieEntity.swift in Sources */,
+				8B95E8132448C21C000E26F5 /* ListMovieBuilder.swift in Sources */,
 				8BA4749B2444F496002CA2B9 /* ViewControllerRouter.swift in Sources */,
 				8BA474632444CFA4002CA2B9 /* AppDelegate.swift in Sources */,
 				8BA474B0244517DC002CA2B9 /* ListMovieWorker.swift in Sources */,
