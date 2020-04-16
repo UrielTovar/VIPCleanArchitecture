@@ -11,11 +11,11 @@ import Foundation
 
 struct ArticlesResponse: Decodable {
     let page: Int
-    let results: [Results]
+    let results:[MovieEntityWS]
 }
 
 
-struct Results: Decodable {
+struct MovieEntityWS: Decodable {
     var title: String?
     var vote_average:Double
     var poster_path: String

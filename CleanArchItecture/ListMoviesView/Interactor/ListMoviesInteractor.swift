@@ -22,7 +22,7 @@ protocol ListMoviesInteractorProtocol {
 class ListMoviesInteractor: ListMoviesInteractorProtocol {
 
   var presenter: ListMoviesPresenterProtocol?
-  private var movieEntity:[Results]?
+  private var movieEntity = [MovieEntityWS]()
   private let apiWorker: ListMovieWorkerWSProtocol?
   
 //  private let apiWorker: ListMovieWorkerProtocol?
@@ -37,11 +37,10 @@ class ListMoviesInteractor: ListMoviesInteractorProtocol {
   }
   
   func startAction(page: String) {
-    movieEntity = self.apiWorker?.getmovieList(page: page)
-    
-    print(movieEntity?.count ?? -7)
-    
-    self.presenter?.interactor(protocol: self, didFetch: movieEntity!)
+    self.apiWorker?.getmovieList(page: page, completion: { movieEntityList in
+      self.movieEntity = movieEntityList
+      self.presenter?.interactor(protocol: self, didFetch: self.movieEntity)
+    })
   }
   
   //  Only one

@@ -13,7 +13,7 @@ protocol ListMoviesPresenterProtocol {
 //  func interactor(protocol:ListMoviesInteractorProtocol, didFetch object: MovieEntity)
   
   //  WS functions
-  func interactor(protocol:ListMoviesInteractorProtocol, didFetch object: [Results])
+  func interactor(protocol:ListMoviesInteractorProtocol, didFetch object: [MovieEntityWS])
   
 }
 
@@ -35,7 +35,7 @@ class ListMoviePresenter {
 extension ListMoviePresenter: ListMoviesPresenterProtocol {
   
   //  WS functions
-  func interactor(protocol: ListMoviesInteractorProtocol, didFetch object: [Results]) {
+  func interactor(protocol: ListMoviesInteractorProtocol, didFetch object: [MovieEntityWS]) {
     
     
   }

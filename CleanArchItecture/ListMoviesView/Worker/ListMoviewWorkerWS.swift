@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ListMovieWorkerWSProtocol {
-  func getmovieList(page:String, completion: @escaping ([Results]) -> ())
+  func getmovieList(page:String, completion: @escaping ([MovieEntityWS]) -> ())
 }
 
 private enum LoginError: Error {
@@ -20,12 +20,9 @@ private enum LoginError: Error {
 
 class ListMoviewWorkerWS: ListMovieWorkerWSProtocol {
   
-  //func getmovieList(page:String)  -> [Results]? {
-    func getmovieList(page:String, completion: @escaping ([Results]) -> ()) {
+  func getmovieList(page:String, completion: @escaping ([MovieEntityWS]) -> ()) {
     
-    var dataArray = [Results]()
-    
-    guard let url = URL(string:"\(Constants.URL_UPCOMING_MOVIES_START)\(Constants.API_KEY_TMDB)\(Constants.URL_UPCOMING_MOVIES_END)\(page)") else { return nil }
+    guard let url = URL(string:"\(Constants.URL_UPCOMING_MOVIES_START)\(Constants.API_KEY_TMDB)\(Constants.URL_UPCOMING_MOVIES_END)\(page)") else {return}
     
     let session = URLSession.shared
     session.dataTask(with: url) { (data, response, error) in
@@ -35,26 +32,19 @@ class ListMoviewWorkerWS: ListMovieWorkerWSProtocol {
       }
       
       if let data = data {
-//        print("\nEsta es el data: \n\(data)")
+        //        print("\nEsta es el data: \n\(data)")
         do {
-//          let json = try JSONSerialization.jsonObject(with: data, options: [])
-//          print("\nEste es el JSON: \n\(json)")
+          //          let json = try JSONSerialization.jsonObject(with: data, options: [])
+          //          print("\nEste es el JSON: \n\(json)")
           
           let imcResponse = try JSONDecoder().decode(ArticlesResponse.self, from: data)
           
-          //dataArray = imcResponse.results
           completion(imcResponse.results)
-          
-          
-//          for data in dataArray{
-//            print("Este es el dataArray: \(data)")
-//          }
           
         } catch let error {
           print(error)
         }
       }
     }.resume()
-    //return dataArray
   }
 }
