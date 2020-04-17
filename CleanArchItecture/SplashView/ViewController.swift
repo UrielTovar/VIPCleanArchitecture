@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = UIColor(named: "MidnightGreen")
+//    self.view.backgroundColor = UIColor(named: "MidnightGreen")
     
     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
       let vc = ListMoviesView(nibName: "ListMoviesView", bundle: nil)

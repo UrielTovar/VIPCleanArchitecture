@@ -15,22 +15,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clean Architecture" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9K1-RA-Wnc">
-                                <rect key="frame" x="30" y="437.5" width="354" height="21"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Jk4-mZ-JnM">
+                                <rect key="frame" x="82" y="323" width="250" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="tCo-iU-fiZ"/>
+                                    <constraint firstAttribute="height" constant="250" id="9p5-60-X9R"/>
+                                    <constraint firstAttribute="width" constant="250" id="E9B-vs-ozW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9K1-RA-Wnc" secondAttribute="trailing" constant="30" id="INv-ie-Y3m"/>
-                            <constraint firstItem="9K1-RA-Wnc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NBg-8x-Ptq"/>
-                            <constraint firstItem="9K1-RA-Wnc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RvF-4o-5Rf"/>
-                            <constraint firstItem="9K1-RA-Wnc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="qGe-Fw-M8b"/>
+                            <constraint firstItem="Jk4-mZ-JnM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7fm-Cw-IFC"/>
+                            <constraint firstItem="Jk4-mZ-JnM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JQg-zS-7e1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -40,4 +36,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logo" width="640" height="437"/>
+    </resources>
 </document>
