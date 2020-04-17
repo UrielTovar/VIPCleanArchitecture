@@ -12,12 +12,6 @@ protocol ListMovieWorkerWSProtocol {
   func getmovieList(page:String, completion: @escaping ([MovieEntityWS]) -> ())
 }
 
-private enum LoginError: Error {
-  case incomplete
-  case passWordLenght
-  case urlEmpty
-}
-
 class ListMoviewWorkerWS: ListMovieWorkerWSProtocol {
   
   func getmovieList(page:String, completion: @escaping ([MovieEntityWS]) -> ()) {

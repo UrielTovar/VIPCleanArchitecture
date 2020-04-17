@@ -10,10 +10,6 @@ import UIKit
 import SDWebImage
 
 protocol ListMoviesProtocol {
-  //  Only one.
-  //   func set(viewModel: ListViewModel)
-  
-  //  WS function
   func set(viewModelList:[ListViewModel])
 }
 
@@ -35,22 +31,10 @@ class ListMoviesView: UIViewController,UICollectionViewDelegate,UICollectionView
     movieList.delegate = self
     movieList.dataSource = self
     
-    //    Only one
-    //    let viewController = self
-    //    let interactor = ListMoviesInteractor(withApiWorker:ListMoviewWorkerWS())
-    //    let presenter = ListMoviePresenter()
-    //    viewController.interactor = interactor
-    //    viewController.presenter = presenter
-    //    presenter.view = self
-    //    interactor.presenter = presenter
-    
-    //MARK: Builder
+    //MARK: Init Builder
     ListMovieBuilder.builderList(configView:self)
     
-    //      Only one
-    //       self.interactor?.startAction()
-    
-    //  WS function
+    //MARK: Init Interactor
     interactor?.startAction(page:"\(pageNumber)")
   }
   
@@ -77,11 +61,5 @@ extension ListMoviesView: ListMoviesProtocol {
       self.movieList.reloadData()
     }
   }
-  
-  //      Only one
-  //  func set(viewModel: ListViewModel) {
-  //    listViewArray.append(viewModel)
-  //    movieList.reloadData()
-  //  }
   
 }

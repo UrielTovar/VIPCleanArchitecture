@@ -13,13 +13,8 @@ class ListMovieBuilder {
   class func builderList(configView view:ListMoviesView) {
     
     //MARK: Initialise components.
-    let presenter = ListMoviePresenter()
-    
-    ///Funcion WS
     let interactor = ListMoviesInteractor(withApiWorker: ListMoviewWorkerWS())
-    
-    //          Funcion 1 elemento
-    //          let interactor = ListMovieInteractor(withApiWorker: ListMoviewWorker())
+    let presenter = ListMoviePresenter()
     
     //MARK: link VIP components.
     view.interactor = interactor

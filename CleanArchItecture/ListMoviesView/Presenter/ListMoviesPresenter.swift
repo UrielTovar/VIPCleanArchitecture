@@ -9,12 +9,7 @@
 import Foundation
 
 protocol ListMoviesPresenterProtocol {
-  //  Only one
-  //  func interactor(protocol:ListMoviesInteractorProtocol, didFetch object: MovieEntity)
-  
-  //  WS functions
   func interactor(protocol:ListMoviesInteractorProtocol, didFetch object: [MovieEntityWS])
-  
 }
 
 struct ListViewModel {
@@ -34,7 +29,6 @@ class ListMoviePresenter {
 
 extension ListMoviePresenter: ListMoviesPresenterProtocol {
   
-  //  WS functions
   func interactor(protocol: ListMoviesInteractorProtocol, didFetch object: [MovieEntityWS]) {
     
     var moviesList = [ListViewModel]()
@@ -45,14 +39,5 @@ extension ListMoviePresenter: ListMoviesPresenterProtocol {
       
       view.set(viewModelList: moviesList)
     }
-    
   }
-  
-  //  Only one
-  //  func interactor(protocol: ListMoviesInteractorProtocol, didFetch object: MovieEntity) {
-  //  let listViewModel = ListViewModel(title: object.title, vote_average: object.vote_average, poster_path: object.poster_path, release_date: object.release_date, overview: object.overview, idMovie: object.idMovie, videoKey: object.videoKey)
-  //
-  //    view.set(viewModel: listViewModel)
-  //  }
-  
 }
