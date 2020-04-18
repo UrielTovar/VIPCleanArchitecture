@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ListMoviesPresenterProtocol {
-  func interactor(protocol:ListMoviesInteractorProtocol, didFetch object: [MovieEntityWS])
+  func interactor(protocol: ListMoviesInteractorProtocol,didFetch object: [MovieEntityWS])
 }
 
 struct ListViewModel {
@@ -31,7 +31,7 @@ extension ListMoviePresenter: ListMoviesPresenterProtocol {
   
   func interactor(protocol: ListMoviesInteractorProtocol, didFetch object: [MovieEntityWS]) {
     
-    var moviesList = [ListViewModel]()
+    var moviesList: [ListViewModel] = []
     
     for item in object {
       let viewModel = ListViewModel(title: item.title ?? "", vote_average:"\(item.vote_average)", poster_path: item.poster_path ?? "", release_date: item.release_date, overview: item.overview, idMovie:"\(item.id)")

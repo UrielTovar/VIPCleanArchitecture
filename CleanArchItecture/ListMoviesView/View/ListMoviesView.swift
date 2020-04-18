@@ -10,10 +10,10 @@ import UIKit
 import SDWebImage
 
 protocol ListMoviesProtocol {
-  func set(viewModelList:[ListViewModel])
+  func set(viewModelList: [ListViewModel])
 }
 
-class ListMoviesView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class ListMoviesView: UIViewController{
   
   @IBOutlet weak var movieList: UICollectionView!
   @IBOutlet weak var headerView: UIView!
@@ -22,7 +22,7 @@ class ListMoviesView: UIViewController,UICollectionViewDelegate,UICollectionView
   var interactor: ListMoviesInteractorProtocol?
   
   var listViewArray: [ListViewModel] = []
-  var pageNumber:Int = 1
+  var pageNumber: Int = 1
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,7 +37,10 @@ class ListMoviesView: UIViewController,UICollectionViewDelegate,UICollectionView
     //MARK: Init Interactor
     interactor?.startAction(page:"\(pageNumber)")
   }
-  
+}
+
+ //MARK: CollectionView Delegate, DataSource.
+extension ListMoviesView: UICollectionViewDelegate,UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return listViewArray.count
   }

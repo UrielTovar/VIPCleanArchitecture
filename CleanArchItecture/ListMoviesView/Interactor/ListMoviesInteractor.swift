@@ -9,24 +9,24 @@
 import Foundation
 
 protocol ListMoviesInteractorProtocol {
-  func startAction(page:String)
+  func startAction(page: String)
   func searchAction()
 }
 
 class ListMoviesInteractor: ListMoviesInteractorProtocol {
   
   var presenter: ListMoviesPresenterProtocol?
-  private var movieEntityList = [MovieEntityWS]()
+  private var movieEntityList: [MovieEntityWS] = []
   private let apiWorker: ListMovieWorkerWSProtocol?
     
-  required init(withApiWorker apiWorker:ListMoviewWorkerWS) {
+  required init(withApiWorker apiWorker: ListMoviewWorkerWS) {
     self.apiWorker = apiWorker
   }
   
   func startAction(page: String) {
-    self.apiWorker?.getmovieList(page: page, completion: { movieEntityList in
+    apiWorker?.getmovieList(page:page, completion: { movieEntityList in
       self.movieEntityList = movieEntityList
-      self.presenter?.interactor(protocol: self, didFetch: self.movieEntityList)
+      self.presenter?.interactor(protocol:self, didFetch:self.movieEntityList)
     })
   }
     
