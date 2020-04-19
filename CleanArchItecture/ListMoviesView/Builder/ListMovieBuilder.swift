@@ -11,23 +11,16 @@ import RealmSwift
 
 class ListMovieBuilder {
   class func builderList(configView view:ListMoviesView) {
-    
     //MARK: Initialise components.
+    let interactor = ListMoviesInteractor(withApiWorker: ListMoviewWorkerWS())
     let presenter = ListMoviePresenter()
     
-    ///Funcion WS
-    let interactor = ListMoviesInteractor(withApiWorker: ListMoviewWorkerWS())
-    
-    //          Funcion 1 elemento
-    //          let interactor = ListMovieInteractor(withApiWorker: ListMoviewWorker())
-    
-    //MARK: link VIP components.
-    view.interactor = interactor
-    view.presenter = presenter;
+    //MARK: Link VIP components.
+    view.interactorDelegate = interactor
+    view.presenterDelegate = presenter;
     presenter.view = view
     interactor.presenter = presenter
     
     _ = try! Realm()
-    
   }
 }

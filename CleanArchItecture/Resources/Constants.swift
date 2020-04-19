@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Constants {
+enum Constants {
   static let API_KEY_TMDB = "1f54bd990f1cdfb230adb312546d765d"
   static let URL_UPCOMING_MOVIES_START = "https://api.themoviedb.org/3/movie/upcoming?api_key="
   static let URL_UPCOMING_MOVIES_END = "&language=en-US&page="

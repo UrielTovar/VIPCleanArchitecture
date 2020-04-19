@@ -9,24 +9,20 @@
 import UIKit
 import SDWebImage
 
-protocol ListMoviesProtocol {
-  //  Only one.
-  //   func set(viewModel: ListViewModel)
-  
-  //  WS function
-  func set(viewModelList:[ListViewModel])
+protocol ListMoviesDelegate {
+  func set(viewModelList: [ListViewModel])
 }
 
-class ListMoviesView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class ListMoviesView: UIViewController{
   
   @IBOutlet weak var movieList: UICollectionView!
   @IBOutlet weak var headerView: UIView!
   
-  var presenter: ListMoviesPresenterProtocol?
-  var interactor: ListMoviesInteractorProtocol?
+  var presenterDelegate: ListMoviesPresenterDelegate?
+  var interactorDelegate: ListMoviesInteractorDelegate?
   
   var listViewArray: [ListViewModel] = []
-  var pageNumber:Int = 1
+  var pageNumber: Int = 1
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,25 +31,16 @@ class ListMoviesView: UIViewController,UICollectionViewDelegate,UICollectionView
     movieList.delegate = self
     movieList.dataSource = self
     
-    //    Only one
-    //    let viewController = self
-    //    let interactor = ListMoviesInteractor(withApiWorker:ListMoviewWorkerWS())
-    //    let presenter = ListMoviePresenter()
-    //    viewController.interactor = interactor
-    //    viewController.presenter = presenter
-    //    presenter.view = self
-    //    interactor.presenter = presenter
-    
-    //MARK: Builder
+    //MARK: Init Builder
     ListMovieBuilder.builderList(configView:self)
     
-    //      Only one
-    //       self.interactor?.startAction()
-    
-    //  WS function
-    interactor?.startAction(page:"\(pageNumber)")
+    //MARK: Init Interactor
+    interactorDelegate?.startAction(page:"\(pageNumber)")
   }
-  
+}
+
+ //MARK: UICollectionView Delegate, DataSource.
+extension ListMoviesView: UICollectionViewDelegate,UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return listViewArray.count
   }
@@ -69,19 +56,12 @@ class ListMoviesView: UIViewController,UICollectionViewDelegate,UICollectionView
   }
 }
 
-extension ListMoviesView: ListMoviesProtocol {
-  
+// MARK: - ListMoviesDelegate
+extension ListMoviesView: ListMoviesDelegate {
   func set(viewModelList:[ListViewModel]) {
     listViewArray = viewModelList
     DispatchQueue.main.async {
       self.movieList.reloadData()
     }
   }
-  
-  //      Only one
-  //  func set(viewModel: ListViewModel) {
-  //    listViewArray.append(viewModel)
-  //    movieList.reloadData()
-  //  }
-  
 }

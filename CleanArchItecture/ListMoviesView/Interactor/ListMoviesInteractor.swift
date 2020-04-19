@@ -8,50 +8,30 @@
 
 import Foundation
 
-protocol ListMoviesInteractorProtocol {
-  //  Only one function
-  //  func startAction()
-  
-  //  WS function
-  func startAction(page:String)
-  
-  
+protocol ListMoviesInteractorDelegate {
+  func startAction(page: String)
   func searchAction()
 }
 
-class ListMoviesInteractor: ListMoviesInteractorProtocol {
+// MARK: - ListMoviesInteractorDelegate
+class ListMoviesInteractor: ListMoviesInteractorDelegate {
   
-  var presenter: ListMoviesPresenterProtocol?
-  private var movieEntityList = [MovieEntityWS]()
-  private let apiWorker: ListMovieWorkerWSProtocol?
-  
-  //  private let apiWorker: ListMovieWorkerProtocol?
-  
-  //  Only one
-  //  required init(withApiWorker apiWorker:ListMoviewWorker) {
-  //    self.apiWorker = apiWorker
-  //  }
-  
-  required init(withApiWorker apiWorker:ListMoviewWorkerWS) {
+  var presenter: ListMoviesPresenterDelegate?
+  private var movieEntityList: [MovieEntityWS] = []
+  private let apiWorker: ListMovieWorkerWSDelegate?
+    
+  required init(withApiWorker apiWorker: ListMoviewWorkerWS) {
     self.apiWorker = apiWorker
   }
   
   func startAction(page: String) {
-    self.apiWorker?.getmovieList(page: page, completion: { movieEntityList in
+    apiWorker?.getmovieList(page:page, completion: { movieEntityList in
       self.movieEntityList = movieEntityList
-      self.presenter?.interactor(protocol: self, didFetch: self.movieEntityList)
+      self.presenter?.interactor(didFetch:self.movieEntityList)
     })
   }
-  
-  //  Only one
-  //  func startAction() {
-  //    movieEntity = self.apiWorker?.initMovieList()
-  //
-  //    self.presenter?.interactor(protocol: self, didFetch: movieEntity!)
-  //  }
-  
+    
   func searchAction() {
     
   }
-  
 }
