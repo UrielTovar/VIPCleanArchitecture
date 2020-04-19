@@ -27,12 +27,11 @@ class ListMoviesInteractor: ListMoviesInteractorDelegate {
   func startAction(page: String) {
     apiWorker?.getmovieList(page:page, completion: { movieEntityList in
       self.movieEntityList = movieEntityList
-      self.presenter?.interactor(protocol:self, didFetch:self.movieEntityList)
+      self.presenter?.interactor(didFetch:self.movieEntityList)
     })
   }
     
   func searchAction() {
     
   }
-  
 }

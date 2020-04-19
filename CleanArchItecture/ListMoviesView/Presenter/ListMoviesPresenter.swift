@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ListMoviesPresenterDelegate {
-  func interactor(protocol: ListMoviesInteractorDelegate,didFetch object: [MovieEntityWS])
+  func interactor(didFetch object: [MovieEntityWS])
 }
 
 struct ListViewModel {
@@ -24,14 +24,11 @@ struct ListViewModel {
 
 class ListMoviePresenter {
   var view = ListMoviesView()
-//  var interactor: ListMoviesInteractorDelegate?
 }
 
 // MARK: - ListMoviePresenterDelegate
 extension ListMoviePresenter: ListMoviesPresenterDelegate {
-  
-  func interactor(protocol: ListMoviesInteractorDelegate, didFetch object: [MovieEntityWS]) {
-    
+  func interactor(didFetch object: [MovieEntityWS]) {
     var moviesList: [ListViewModel] = []
     
     for item in object {

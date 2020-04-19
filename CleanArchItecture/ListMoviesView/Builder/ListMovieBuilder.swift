@@ -11,7 +11,6 @@ import RealmSwift
 
 class ListMovieBuilder {
   class func builderList(configView view:ListMoviesView) {
-    
     //MARK: Initialise components.
     let interactor = ListMoviesInteractor(withApiWorker: ListMoviewWorkerWS())
     let presenter = ListMoviePresenter()
@@ -23,6 +22,5 @@ class ListMovieBuilder {
     interactor.presenter = presenter
     
     _ = try! Realm()
-    
   }
 }

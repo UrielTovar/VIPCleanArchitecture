@@ -58,12 +58,10 @@ extension ListMoviesView: UICollectionViewDelegate,UICollectionViewDataSource {
 
 // MARK: - ListMoviesDelegate
 extension ListMoviesView: ListMoviesDelegate {
-  
   func set(viewModelList:[ListViewModel]) {
     listViewArray = viewModelList
     DispatchQueue.main.async {
       self.movieList.reloadData()
     }
   }
-  
 }

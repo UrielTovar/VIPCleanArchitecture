@@ -14,7 +14,6 @@ protocol ListMovieWorkerDelegate {
 
 // MARK: - ListMovieWorkerDelegate
 class ListMoviewWorker: ListMovieWorkerDelegate {
-  
   func initMovieList() -> MovieEntity {
     let movieEntity = MovieEntity(title: "1917",
                                   vote_average: "8.1",
@@ -25,5 +24,4 @@ class ListMoviewWorker: ListMovieWorkerDelegate {
                                   videoKey: "0")
     return movieEntity
   }
-  
 }
