@@ -8,16 +8,17 @@
 
 import Foundation
 
-protocol ListMoviesInteractorProtocol {
+protocol ListMoviesInteractorDelegate {
   func startAction(page: String)
   func searchAction()
 }
 
-class ListMoviesInteractor: ListMoviesInteractorProtocol {
+// MARK: - ListMoviesInteractorDelegate
+class ListMoviesInteractor: ListMoviesInteractorDelegate {
   
-  var presenter: ListMoviesPresenterProtocol?
+  var presenter: ListMoviesPresenterDelegate?
   private var movieEntityList: [MovieEntityWS] = []
-  private let apiWorker: ListMovieWorkerWSProtocol?
+  private let apiWorker: ListMovieWorkerWSDelegate?
     
   required init(withApiWorker apiWorker: ListMoviewWorkerWS) {
     self.apiWorker = apiWorker

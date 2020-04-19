@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol ListMoviesPresenterProtocol {
-  func interactor(protocol: ListMoviesInteractorProtocol,didFetch object: [MovieEntityWS])
+protocol ListMoviesPresenterDelegate {
+  func interactor(protocol: ListMoviesInteractorDelegate,didFetch object: [MovieEntityWS])
 }
 
 struct ListViewModel {
@@ -24,12 +24,13 @@ struct ListViewModel {
 
 class ListMoviePresenter {
   var view = ListMoviesView()
-  var interactor: ListMoviesInteractorProtocol?
+//  var interactor: ListMoviesInteractorDelegate?
 }
 
-extension ListMoviePresenter: ListMoviesPresenterProtocol {
+// MARK: - ListMoviePresenterDelegate
+extension ListMoviePresenter: ListMoviesPresenterDelegate {
   
-  func interactor(protocol: ListMoviesInteractorProtocol, didFetch object: [MovieEntityWS]) {
+  func interactor(protocol: ListMoviesInteractorDelegate, didFetch object: [MovieEntityWS]) {
     
     var moviesList: [ListViewModel] = []
     

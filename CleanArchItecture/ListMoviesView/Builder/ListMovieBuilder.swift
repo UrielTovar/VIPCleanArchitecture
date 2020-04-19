@@ -16,9 +16,9 @@ class ListMovieBuilder {
     let interactor = ListMoviesInteractor(withApiWorker: ListMoviewWorkerWS())
     let presenter = ListMoviePresenter()
     
-    //MARK: link VIP components.
-    view.interactor = interactor
-    view.presenter = presenter;
+    //MARK: Link VIP components.
+    view.interactorDelegate = interactor
+    view.presenterDelegate = presenter;
     presenter.view = view
     interactor.presenter = presenter
     

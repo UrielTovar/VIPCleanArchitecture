@@ -8,11 +8,12 @@
 
 import Foundation
 
-protocol ListMovieWorkerWSProtocol {
+protocol ListMovieWorkerWSDelegate {
   func getmovieList(page: String, completion: @escaping ([MovieEntityWS]) -> Void)
 }
 
-class ListMoviewWorkerWS: ListMovieWorkerWSProtocol {
+// MARK: - ListMovieWorkerWSDelegate
+class ListMoviewWorkerWS: ListMovieWorkerWSDelegate {
   
   func getmovieList(page: String, completion: @escaping ([MovieEntityWS]) -> Void) {
     

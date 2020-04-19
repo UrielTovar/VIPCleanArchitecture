@@ -8,11 +8,12 @@
 
 import Foundation
 
-protocol ListMovieWorkerProtocol {
+protocol ListMovieWorkerDelegate {
   func initMovieList() -> MovieEntity
 }
 
-class ListMoviewWorker: ListMovieWorkerProtocol {
+// MARK: - ListMovieWorkerDelegate
+class ListMoviewWorker: ListMovieWorkerDelegate {
   
   func initMovieList() -> MovieEntity {
     let movieEntity = MovieEntity(title: "1917",
