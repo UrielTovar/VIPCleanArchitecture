@@ -9,15 +9,15 @@
 import Foundation
 
 
-struct ArticlesResponse: Decodable {
+struct MoviesResponse: Decodable {
   let page: Int
-  let results:[MovieEntityWS]
+  let results: [MovieEntityWS]
 }
 
 
 struct MovieEntityWS: Decodable {
   var title: String?
-  var vote_average:Double
+  var vote_average: Double
   var poster_path: String?
   var release_date: String
   var overview: String

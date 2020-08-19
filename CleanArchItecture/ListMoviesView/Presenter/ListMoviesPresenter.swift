@@ -8,13 +8,8 @@
 
 import Foundation
 
-protocol ListMoviesPresenterProtocol {
-  //  Only one
-  //  func interactor(protocol:ListMoviesInteractorProtocol, didFetch object: MovieEntity)
-  
-  //  WS functions
-  func interactor(protocol:ListMoviesInteractorProtocol, didFetch object: [MovieEntityWS])
-  
+protocol ListMoviesPresenterDelegate {
+  func interactor(didFetch object: [MovieEntityWS])
 }
 
 struct ListViewModel {
@@ -29,15 +24,12 @@ struct ListViewModel {
 
 class ListMoviePresenter {
   var view = ListMoviesView()
-  var interactor: ListMoviesInteractorProtocol?
 }
 
-extension ListMoviePresenter: ListMoviesPresenterProtocol {
-  
-  //  WS functions
-  func interactor(protocol: ListMoviesInteractorProtocol, didFetch object: [MovieEntityWS]) {
-    
-    var moviesList = [ListViewModel]()
+// MARK: - ListMoviePresenterDelegate
+extension ListMoviePresenter: ListMoviesPresenterDelegate {
+  func interactor(didFetch object: [MovieEntityWS]) {
+    var moviesList: [ListViewModel] = []
     
     for item in object {
       let viewModel = ListViewModel(title: item.title ?? "", vote_average:"\(item.vote_average)", poster_path: item.poster_path ?? "", release_date: item.release_date, overview: item.overview, idMovie:"\(item.id)")
@@ -45,14 +37,5 @@ extension ListMoviePresenter: ListMoviesPresenterProtocol {
       
       view.set(viewModelList: moviesList)
     }
-    
   }
-  
-  //  Only one
-  //  func interactor(protocol: ListMoviesInteractorProtocol, didFetch object: MovieEntity) {
-  //  let listViewModel = ListViewModel(title: object.title, vote_average: object.vote_average, poster_path: object.poster_path, release_date: object.release_date, overview: object.overview, idMovie: object.idMovie, videoKey: object.videoKey)
-  //
-  //    view.set(viewModel: listViewModel)
-  //  }
-  
 }

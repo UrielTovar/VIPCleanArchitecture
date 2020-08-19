@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     
 //    self.view.backgroundColor = UIColor(named: "MidnightGreen")
     
-    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
       let vc = ListMoviesView(nibName: "ListMoviesView", bundle: nil)
       self.navigationController?.pushViewController(vc, animated: true)
     }

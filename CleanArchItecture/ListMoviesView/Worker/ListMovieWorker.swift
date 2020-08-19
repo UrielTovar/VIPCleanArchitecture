@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol ListMovieWorkerProtocol {
+protocol ListMovieWorkerDelegate {
   func initMovieList() -> MovieEntity
 }
 
-class ListMoviewWorker: ListMovieWorkerProtocol {
-  
+// MARK: - ListMovieWorkerDelegate
+class ListMoviewWorker: ListMovieWorkerDelegate {
   func initMovieList() -> MovieEntity {
     let movieEntity = MovieEntity(title: "1917",
                                   vote_average: "8.1",
@@ -24,5 +24,4 @@ class ListMoviewWorker: ListMovieWorkerProtocol {
                                   videoKey: "0")
     return movieEntity
   }
-  
 }
